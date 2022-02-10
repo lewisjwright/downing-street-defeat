@@ -11,7 +11,7 @@ int main() {
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
 
-    std::cout << std::endl;
+    std::cout << std::endl << "Intelligence shows:" << std::endl;
     std::cout << "+ There are 3 numbers in the code" << std::endl;
     std::cout << "+ The codes add up to: " << CodeSum << std::endl;
     std::cout << "+ The codes mutliply to give:" << CodeProduct << std::endl;
@@ -24,6 +24,14 @@ int main() {
 
     const int GuessSum = GuessA + GuessB + GuessC;
     const int GuessProduct = GuessA * GuessB * GuessC;
+
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
+        std::cout << std::endl << "You Win!";
+    } else {
+        std::cout << std::endl << "TWAT!";
+        std::cout << std::endl << "You got it wrong and now they're onto us. Try again.";
+    }
+
 
     return 0;
 }
