@@ -16,5 +16,7 @@ int main() {
     std::cout << "+ The codes add up to: " << CodeSum << std::endl;
     std::cout << "+ The codes mutliply to give:" << CodeProduct << std::endl;
 
+    int PlayerGuess;
+
     return 0;
 }
