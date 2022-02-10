@@ -16,17 +16,17 @@ void PrintASCII()
     std::cout << "         \\/                               \\/     \\/          \\/     \\/    " << std::endl;
 }
 
-void PrintIntro()
+void PrintIntro(int Difficulty)
 {
     // Setup scenario
-    PrintASCII();
-    std::cout << "You are a secret agent breaking into number 10 to break up a party\n";
-    std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...\n";
+    std::cout << "\n\nYou are a secret agent breaking into number 10 to break up a party\n";
+    std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...\n\n";
+    std::cout << "You're currently trying to crack a level " << Difficulty << " door\n";
 }
 
-void PlayGame()
+bool PlayGame(int Difficulty)
 {
-    PrintIntro();
+    PrintIntro(Difficulty);
 
     // Set code
     const int CodeA = 4;
@@ -41,7 +41,7 @@ void PlayGame()
     std::cout << std::endl << "Intelligence shows:\n";
     std::cout << "+ There are 3 numbers in the code";
     std::cout << "\n+ The codes add up to: " << CodeSum;
-    std::cout << "\n+ The codes mutliply to give:" << CodeProduct << std::endl;
+    std::cout << "\n+ The codes mutliply to give: " << CodeProduct << std::endl;
 
     // Store players guess
     int GuessA, GuessB, GuessC;
@@ -52,16 +52,36 @@ void PlayGame()
 
     // Check win conditions
     if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
-        std::cout << "\nYes! You got the code right and caught them red handed. \n";
-        std::cout << "There's no way they will get away with this...";
+        std::cout << "\nYes! You cracked it! But behind all the wine and cheese there's another door! \n";
+        return true;
     } else {
         std::cout << "\nTWAT!\n";
         std::cout << "You got it wrong and now they're onto us. Try again.";
+        return false;
     }
 }
 
 int main()
 {
-    PlayGame();
+    PrintASCII();
+
+    int LevelDifficulty = 1;
+    const int MaxDifficulty = 5;
+
+    while (LevelDifficulty <= MaxDifficulty)
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty); // follow unreal naming
+        std::cin.clear(); // clear errors
+        std::cin.ignore(); // ignore buffers
+
+        if (bLevelComplete) {
+            // increase difficulty
+            ++LevelDifficulty;
+        }
+    }
+
+    std::cout << "\nYes! You got the code right and caught them red handed. \n";
+    std::cout << "There's no way they will get away with this...";
+
     return 0;
 }
