@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main() {
+void PlayGame()
+{
     // Setup scenario
     std::cout << "You are a secret agent breaking into number 10 to break up a party\n";
     std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...\n";
@@ -35,7 +36,10 @@ int main() {
         std::cout << "\nTWAT!\n";
         std::cout << "You got it wrong and now they're onto us. Try again.";
     }
+}
 
-
+int main()
+{
+    PlayGame();
     return 0;
 }
