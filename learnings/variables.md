@@ -1,3 +1,6 @@
+# Variables
+
+```cpp
 #include <iostream>
 
 int main() {
@@ -5,6 +8,10 @@ int main() {
     std::cout << std::endl;
     std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...";
 
+    // declare variables
+    // int <- type of variable integer, string, float etc
+    // declaring a variable = reserving space in memory
+    // variables declared with values are initialised
     int a = 4;
     int b = 7;
     int c = 5;
@@ -18,3 +25,4 @@ int main() {
 
     return 0;
 }
+```
