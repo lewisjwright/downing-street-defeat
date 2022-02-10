@@ -1,14 +1,36 @@
 #include <iostream>
 
-void PlayGame()
+void PrintASCII()
+{
+    std::cout << "________                      .__                   _________ __                         __   " << std::endl;
+    std::cout << "\\______ \\   ______  _  ______ |__| ____    ____    /   _____//  |________   ____   _____/  |_ " << std::endl;
+    std::cout << " |    |  \\ /  _ \\ \\/ \\/ /    \\|  |/    \\  / ___\\   \\_____  \\\\   __\\_  __ \\_/ __ \\_/ __ \\   __\\" << std::endl;
+    std::cout << " |    `   (  <_> )     /   |  \\  |   |  \\/ /_/  >  /        \\|  |  |  | \\/\\  ___/\\  ___/|  |  " << std::endl;
+    std::cout << "/_______  /\\____/ \\/\\_/|___|  /__|___|  /\\___  /  /_______  /|__|  |__|    \\___  >\\___  >__|  " << std::endl;
+    std::cout << "        \\/                  \\/        \\//_____/           \\/                   \\/     \\/      " << std::endl;
+    std::cout << ".___           _____              ________          _____              __                     " << std::endl;
+    std::cout << "|   | ____   _/ ____\\___________  \\______ \\   _____/ ____\\____ _____ _/  |_                   " << std::endl;
+    std::cout << "|   |/    \\  \\   __\\/  _ \\_  __ \\  |    |  \\_/ __ \\   __\\/ __ \\\\__  \\\\   __\\                  " << std::endl;
+    std::cout << "|   |   |  \\  |  | (  <_> )  | \\/  |    `   \\  ___/|  | \\  ___/ / __ \\|  |                    " << std::endl;
+    std::cout << "|___|___|  /  |__|  \\____/|__|    /_______  /\\___  >__|  \\___  >____  /__|                    " << std::endl;
+    std::cout << "         \\/                               \\/     \\/          \\/     \\/    " << std::endl;
+}
+
+void PrintIntro()
 {
     // Setup scenario
+    PrintASCII();
     std::cout << "You are a secret agent breaking into number 10 to break up a party\n";
     std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...\n";
+}
+
+void PlayGame()
+{
+    PrintIntro();
 
     // Set code
     const int CodeA = 4;
-    const int CodeB = 7;
+    const int CodeB = 2;
     const int CodeC = 5;
 
     // Set clues
