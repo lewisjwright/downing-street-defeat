@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 void PrintASCII()
 {
@@ -16,22 +17,21 @@ void PrintASCII()
     std::cout << "         \\/                               \\/     \\/          \\/     \\/    " << std::endl;
 }
 
-void PrintIntro(int Difficulty)
+void PrintIntro()
 {
     // Setup scenario
     std::cout << "\n\nYou are a secret agent breaking into number 10 to break up a party\n";
     std::cout << "Sneaky bastards! They've got code locks on the doors! You're going to need to break the codes...\n\n";
-    std::cout << "You're currently trying to crack a level " << Difficulty << " door\n";
 }
 
 bool PlayGame(int Difficulty)
 {
-    PrintIntro(Difficulty);
+    std::cout << "\n\nYou're currently trying to crack a level " << Difficulty << " door\n";
 
     // Set code
-    const int CodeA = 4;
-    const int CodeB = 2;
-    const int CodeC = 5;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     // Set clues
     const int CodeSum = CodeA + CodeB + CodeC;
@@ -52,18 +52,25 @@ bool PlayGame(int Difficulty)
 
     // Check win conditions
     if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
+        std::cout << "\n********************************************************\n";
         std::cout << "\nYes! You cracked it! But behind all the wine and cheese there's another door! \n";
+        std::cout << "\n********************************************************\n";
         return true;
     } else {
+        std::cout << "\n********************************************************\n";
         std::cout << "\nTWAT!\n";
-        std::cout << "You got it wrong and now they're onto us. Try again.";
+        std::cout << "You got it wrong and now they're onto us. Try again.\n";
+        std::cout << "\n********************************************************\n";
         return false;
     }
 }
 
 int main()
 {
+    srand(time(NULL)); // Create new seed
+
     PrintASCII();
+    PrintIntro();
 
     int LevelDifficulty = 1;
     const int MaxDifficulty = 5;
