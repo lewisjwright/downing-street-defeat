@@ -14,3 +14,6 @@ int main() {
     return 0;
 }
 ```
+
+`<<` - Insertion Operator - insert something to output stream
+`>>` - Extraction Operator - Extract characters from input stream
